@@ -1,13 +1,54 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0px;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.coincoin {
+  background-color: hotpink;
+}
+.warning {
+  background-color: rgba(255, 0, 0, 0.432);
+  border: red solid 2px;
+}
+.bouton {
+  background-color: rgb(93, 133, 32);
+  padding : 0.5em 1em;
+  border : none;
+  color : whitesmoke;
+  font-size: 18px;
+}
+.bouton:hover{
+  background-color: rgba(93, 133, 32, 0.747);
+}
+:focus {
+  outline: none;
+}
+.homebarli {
+  color: aliceblue;
+  list-style: none;
+  display: inline-block;
+  padding-right: 15px ;
+  
+}
+.homebarli a{
+color: white;
+text-decoration: none;
+}
+.homebarul {
+  margin: 0px;
+  background-color: rgb(90, 70, 204);
+  text-align: center;
+  padding: 20px;
+}
+.login {
+  float: right;
+  top: -10px;
+}
+.login button {
+  margin-left: 10px;
+  padding : 0.5em 0.6em;
+}
+.headcover {
+  width: 100%;
+  height: auto;
 }
