@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import headercover from './img/hand-holding-pencil-at-meeting.jpg'
-import Contactpage from './contact'
+import Contactpage from './pagesmenu/contact'
+import Accueilpage from './pagesmenu/accueil'
+import NosOffrespage from './pagesmenu/nosoffres'
+import Essaipage from './pagesmenu/versionessai'
 
 import {
   BrowserRouter as Router,
@@ -11,33 +14,11 @@ import {
   Link
 } from "react-router-dom";
 
-/*const routes = [
-  {
-    path: '/',
-    component : Accueil
-  },
-  {
-    path: '/NosOffres',
-    component : NosOffres
-  },
-  {
-    path: '/Contact',
-    component : Contactpage
-  },
-  {
-    path: '/Versiondessai',
-    component : Versiondessai
-  },
-]
-*/
-
-
-
 function Login() {
     return (
       <div className="login">
         <button>S'inscrire</button>
-        <button>Connexion</button>
+        <button id='connexion'>Connexion</button>
       </div>
     )
   }
@@ -49,7 +30,7 @@ class Home extends React.Component {
       return ( 
         <Router>
           <div>
-            <ul>
+            <ul className="headertabs">
               <li>
                 <Link to="/">Accueil</Link>
               </li>
@@ -62,20 +43,23 @@ class Home extends React.Component {
               <li>
                 <Link to="/Versiondessai">Version d'essai</Link>
               </li>
+              <Login/>
             </ul>
+
+            <img id='headercover' src={headercover} alt='headercover'></img>
 
             <Switch>
               <Route exact path="/">
-                <Accueil />
+                <Accueilpage />
               </Route>
               <Route path="/NosOffres">
-                <NosOffres />
+                <NosOffrespage />
               </Route>
               <Route path="/Contact">
                 <Contactpage />
               </Route>
               <Route path="/Versiondessai">
-                <Versiondessai />
+                <Essaipage />
               </Route>
             </Switch>
           </div>
@@ -83,22 +67,6 @@ class Home extends React.Component {
         
       );
     }
-  }
-
-  function Accueil() {
-    return (
-      <div>Accueil</div>
-    )
-  }
-  function NosOffres() {
-    return (
-      <div>Nos offres</div>
-    )
-  }
-  function Versiondessai() {
-    return (
-      <div>Version d'essai</div>
-    )
   }
   
   // ========================================

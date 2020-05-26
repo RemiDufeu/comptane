@@ -2,53 +2,57 @@ body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 0px;
   }
-
-.coincoin {
-  background-color: hotpink;
-}
-.warning {
-  background-color: rgba(255, 0, 0, 0.432);
-  border: red solid 2px;
-}
-.bouton {
-  background-color: rgb(93, 133, 32);
-  padding : 0.5em 1em;
-  border : none;
-  color : whitesmoke;
-  font-size: 18px;
-}
-.bouton:hover{
-  background-color: rgba(93, 133, 32, 0.747);
-}
 :focus {
   outline: none;
 }
-.homebarli {
-  color: aliceblue;
+#headercover {
+  width: 100%;
+  height: auto;
+}
+.headertabs {
   list-style: none;
-  display: inline-block;
-  padding-right: 15px ;
+  text-align: center;
+  background-color: rgba(236, 102, 24, 0.719);
+  padding: 12px;
+  margin: 0;
   
 }
-.homebarli a{
-color: white;
-text-decoration: none;
+.headertabs li {
+  display: inline-flex;
+  padding: 7px 10px;
+  color: aqua;
 }
-.homebarul {
-  margin: 0px;
-  background-color: rgb(90, 70, 204);
-  text-align: center;
-  padding: 20px;
+.headertabs a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 15px;
+}
+.headertabs a:hover{
+  color: rgba(240, 248, 255, 0.541);
 }
 .login {
   float: right;
-  top: -10px;
+}
+.headertabs button{
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: aliceblue;
+  outline: aliceblue solid 1px;
+  font-size: 15px;
+  padding: 7px;
 }
 .login button {
-  margin-left: 10px;
-  padding : 0.5em 0.6em;
+  background-color: rgba(236, 102, 24, 0);
+  color: rgba(240, 248, 255, 0.932);
 }
-.headcover {
-  width: 100%;
-  height: auto;
+#connexion {
+  background-color: rgba(240, 248, 255, 0.87);
+  color: rgba(236, 102, 24, 0.719);
+}
+.login button:hover {
+  background-color: rgba(240, 248, 255, 0.274);
+}
+#connexion:hover {
+  color: rgba(236, 102, 24, 0.384);
 }
