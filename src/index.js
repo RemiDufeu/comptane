@@ -1,22 +1,37 @@
-import {contact} from './contact'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import headercover from './img/hand-holding-pencil-at-meeting.jpg'
+import Contactpage from './contact'
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-const contactindex = contact
-
-contactindex()
-const menu = [
-  {name : 'Notre programme', link : "/notreprogramme"},
-  {name : 'Nos offres', link : "/nosoffres"},
-  {name : 'contact', link : "contact"},
-  {name : 'version d\'éssai', link : "/notreprogramme"},
+/*const routes = [
+  {
+    path: '/',
+    component : Accueil
+  },
+  {
+    path: '/NosOffres',
+    component : NosOffres
+  },
+  {
+    path: '/Contact',
+    component : Contactpage
+  },
+  {
+    path: '/Versiondessai',
+    component : Versiondessai
+  },
 ]
+*/
 
-const homebar = menu.map((page) => 
-  <li key= {page.name}  className="homebarli"><a href= {page.link}>{page.name}</a></li>)
+
 
 function Login() {
     return (
@@ -29,23 +44,62 @@ function Login() {
 
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
   
   render() {
       return ( 
-        <div>
-          <ul className="homebarul">{homebar} <Login/> </ul>
-          <img className="headcover" src={headercover} alt="comptabilité"></img>
-          
-        </div>
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Accueil</Link>
+              </li>
+              <li>
+                <Link to="/NosOffres">Nos offres</Link>
+              </li>
+              <li>
+                <Link to="/Contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/Versiondessai">Version d'essai</Link>
+              </li>
+            </ul>
+
+            <Switch>
+              <Route exact path="/">
+                <Accueil />
+              </Route>
+              <Route path="/NosOffres">
+                <NosOffres />
+              </Route>
+              <Route path="/Contact">
+                <Contactpage />
+              </Route>
+              <Route path="/Versiondessai">
+                <Versiondessai />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
         
       );
     }
   }
-  
+
+  function Accueil() {
+    return (
+      <div>Accueil</div>
+    )
+  }
+  function NosOffres() {
+    return (
+      <div>Nos offres</div>
+    )
+  }
+  function Versiondessai() {
+    return (
+      <div>Version d'essai</div>
+    )
+  }
   
   // ========================================
   
