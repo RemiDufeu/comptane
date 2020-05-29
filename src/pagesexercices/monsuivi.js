@@ -18,7 +18,7 @@ export default function monsuivi () {
                     <Route exact path="/monsuivi">
                         <div>Helllowwwww</div>
                     </Route>
-                    <Route path="/monsuivi/chapitre1">
+                    <Route path="/monsuivi/chapitre1" >
                         <Chapitre1page/>
                     </Route>
                     <Route path="/monsuivi/chapitre2"> 
