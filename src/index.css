@@ -1,6 +1,7 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 0px;
+    background-color: rgba(0, 0, 0, 0.075);
   }
 :focus {
   outline: none;
@@ -18,9 +19,10 @@ body {
   
 }
 .headertabs li {
-  display: inline-flex;
+  display: inline-block;
   padding: 7px 10px;
-  color: aqua;
+  color: aliceblue;
+  font-size: 15px;
 }
 .headertabs a {
   text-decoration: none;
@@ -55,4 +57,50 @@ body {
 }
 #connexion:hover {
   color: rgba(236, 102, 24, 0.384);
+}
+.listechapitres {
+  list-style: none;
+  margin: 20px;
+  background-color: whitesmoke;
+  padding: 15px;
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 35px -15px;
+}
+.listechapitres li{
+  display: block;
+  border: rgba(236, 102, 24, 0.719) solid 1px;
+  margin: 10px;
+  padding: 10px 20px;
+  
+}
+.listechapitres ul {
+  margin: 0;
+  padding: 0;
+}
+.listechapitres a {
+  text-decoration: none;
+  color: rgb(26, 26, 26);
+  font-size: 22px;
+  font-weight: 550;
+  
+  
+}
+.listechapitres label {
+  font-weight: 450;
+  font-size: 20px;
+ 
+}
+.diapoboutton {
+  padding: 8px;
+  border: none;
+  background-color: rgba(236, 102, 24, 0.719);
+  position: relative;
+  margin: 15px ;
+  color: whitesmoke;
+
+}
+.diapobouttoncontenair {
+  text-align: center;
 }

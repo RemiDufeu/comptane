@@ -1,9 +1,15 @@
 import React from "react";
-
+import Affichage from './fonctionaffichage'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 const diapos = [{titre: '0cours1 : Notion d\'emplois / ressources et écriture comptable',
                 type : 'diapo',
-                contenu : <div>diapo1</div>},
+                contenu : <div><h1>diapo 1</h1><p>zejkfezjkfzejkfb ezfzeifhzejh ezf hezhf zefh zeufh </p></div>},
                 {titre: '1cours1 : Notion d\'emplois / ressources et écriture comptable',
                 type : 'diapo',
                 contenu : <div>diapo2</div>},
@@ -13,24 +19,10 @@ const diapos = [{titre: '0cours1 : Notion d\'emplois / ressources et écriture c
 ]
 
 
-function Affichage (props) {
-    
-    return (
-
-    <div>
-        <h1>{props.titre}</h1>
-        {props.contenu}
-    </div>
-
-)
-}
-
-
 export default class Exportchapitre extends React.Component {
     constructor(props) {
         super(props);
         this.state = {diapo:{}};
-        console.log(this.state)
         this.i=0
      } 
 
@@ -42,9 +34,15 @@ export default class Exportchapitre extends React.Component {
          this.setState({diapo:diapos[this.i]}) }
       
     render () {
-        return ( <div>
-            <Affichage titre={this.state.diapo.titre} contenu={this.state.diapo.contenu} />    
-            <button onClick={this.nextdiapo}>Next</button>
+        if (this.state.diapo == undefined) {
+           return (<div className='listechapitres'>
+                <h1>Bravo, ce chapitre est terminé</h1>
+                <div className="diapobouttoncontenair"><Link to ="./"><button className="diapoboutton">Retourner au suivi</button></Link></div> 
+                </div> )
+        }
+        return ( <div className='listechapitres'>
+            <Affichage diapo={this.state} />
+            <div className="diapobouttoncontenair"><button onClick={this.nextdiapo} className="diapoboutton" >Suivant</button></div>
             </div>)
     }
     
