@@ -7,42 +7,45 @@ import {
     Link
   } from "react-router-dom";
 
-const diapos = [{titre: '0cours1 : Notion d\'emplois / ressources et écriture comptable',
+const diapos = [{titre: 'Introduction',
                 type : 'diapo',
-                contenu : <div><h1>diapo 1</h1><p>zejkfezjkfzejkfb ezfzeifhzejh ezf hezhf zefh zeufh </p></div>},
-                {titre: '1cours1 : Notion d\'emplois / ressources et écriture comptable',
+                contenu : <div><div className="problematique">La comptabilité c'est quoi? </div>
+                <p>La comptabilité est la retranscription des flux, des dépenses et des recettes au sein d’une entreprise. Elle a pour but d’établir les documents financiers (bilan et compte de résultat) afin d’évaluer les performances et l’état général d’une entreprise.</p>
+                <div><ul className='listediapo'>Dans les faits voilà des exemples de flux :<li>-Patrick achète un cahier à 2€.</li><li>-L’entreprise Paper vend 250 classeurs à un supermarché à 70€.</li><li>-La banque accorde un prêt à Patrick de 30 000€</li></ul></div>
+                <p>Nous voyons à travers ces exemples que les flux peuvent être de différentes natures. En comptablité, nous nous interresserons plus particulièrement aux flux des sociétes.</p>
+                </div>,
+                 questions : [{options:[{},{}]}]
+                },
+                
+                {titre: 'Notion d\'emplois / ressources',
                 type : 'diapo',
-                contenu : <div>diapo2</div>},
-                {titre: '2cours1 : Notion d\'emplois / ressources et écriture comptable',
-                type : 'diapo',
-                contenu : <div>diapo3</div>},
+                contenu : <div><p>Chaque flux a une origine et une destination. En comptabilité, l’origine est appelé ressource ou bien crédit. La destination correspond lui à l’emploi ou le débit (ces termes sont synonymes).</p>
+                <ul className="listediapo">Pour illustrer ces notions, prenons un exemple :<li >L’entreprise Paper vend 250 classeurs à un supermarché à 70€.</li></ul>
+                <p>Ici la ressource utilisée est le classeur produit par l’entreprise, il est à l’origine du flux. Cette vente permet d’obtenir l’argent du client (le supermarché) ce qui est la finalité du flux, l’emploi.</p>
+                <div className="note"><p>Note : Selon le point de vue, les emplois et ressources sont inversés. Pour le supermarché la ressource est 120€ alors que les classeurs sont l’emploi.</p></div>
+                </div>,
+                 questions : [{options:[{},{}]}]
+                },
+
+
+                {titre: 'Exercice',
+                type : 'qcm',
+                questions : [{enonce : 'Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : '2Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'2les 550€',checked:false},{nom:'2les carottes',checked:true},{nom:'2les carottes',checked:true}]},
+                             {enonce : '3Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'3les 550€',checked:false},{nom:'3les carottes',checked:true}]},
+                    ]
+                }
 ]
 
 
 export default class Exportchapitre extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {diapo:{}};
-        this.i=0
      } 
 
-     componentDidMount() {
-        this.setState({diapo:diapos[this.i]})
-      }
-     
-     nextdiapo= () => {this.i++
-         this.setState({diapo:diapos[this.i]}) }
-      
     render () {
-        if (this.state.diapo == undefined) {
-           return (<div className='listechapitres'>
-                <h1>Bravo, ce chapitre est terminé</h1>
-                <div className="diapobouttoncontenair"><Link to ="./"><button className="diapoboutton">Retourner au suivi</button></Link></div> 
-                </div> )
-        }
         return ( <div className='listechapitres'>
-            <Affichage diapo={this.state} />
-            <div className="diapobouttoncontenair"><button onClick={this.nextdiapo} className="diapoboutton" >Suivant</button></div>
+            <Affichage diapos={diapos} />
             </div>)
     }
     
