@@ -16,43 +16,48 @@ import {
         this.checkedbox = props.diapos[this.i].questions[0].options.map(obj => {
             return {checked:false}
         })
+        this.memereponses = ''
         this.setState({checkboxs:this.checkedbox})
+        this.showreponse = true
+        this.compteurreponses = 0
+        this.correction = []
+        this.reponses = []
     }
     clickchecked (e) {
         let id = e.target.id
         this.checkedbox[id].checked = !this.checkedbox[id].checked
         this.setState({checkeboxs: this.checkedbox});
-        console.log(this.state)
         }
     
     componentDidMount() {
         this.setState({diapo:this.diapo});
         this.setState({checkeboxs: this.checkedbox});
-        console.log(this.state)
+        this.setState({verification: []})
       }
     
     nextdiapo= () => {
-        let correction = []
-        let reponses = []
+        
         if (this.state.diapo.type === 'qcm') {
             if (this.state.diapo.questions[1] == undefined) {
                 this.i++
                 this.diapo=this.diapos[this.i]
                 this.setState({diapo:this.diapos[this.i]})
             } else {
-                correction = this.state.diapo.questions[0].options.map(obj => {
-                    return obj.checked
-                })
-                reponses = this.state.checkeboxs.map(obj => {
-                    return obj.checked
-                })
-                console.log(correction)
-                console.log(reponses)
-                if (correction[0] === reponses[0]) {
-                    console.log('tu as juste!')
-                } else {
-                    console.log('tu as faux')
-                }
+                
+                if (this.showreponse == false) {
+                    this.setState({verification: []})
+                    this.memereponses = ''
+                    if (this.compteurreponses > 2) {
+                        this.i++
+                        this.checkedbox = this.diapo.questions[0].options.map(obj => {
+                            return {checked:false}
+                        })
+                        this.setState({checkeboxs:this.checkedbox})
+                        this.diapo=this.diapos[this.i]
+                        this.compteurreponses = 0
+                        this.showreponse = true
+                        this.setState({diapo:this.diapos[this.i]})
+                    } else {
                 let remove = this.state.diapo.questions.shift()
                 this.state.diapo.questions.push(remove)
                 
@@ -62,6 +67,44 @@ import {
                     return {checked:false}
                 })
                 this.setState({checkeboxs:this.checkedbox})
+                this.showreponse = !this.showreponse
+                
+                }} else {
+                    this.correction = this.state.diapo.questions[0].options.map(obj => {
+                        return obj.checked
+                    })
+                    this.reponses = this.state.checkeboxs.map(obj => {
+                        return obj.checked
+                    })
+                    let i = 0
+                    let verif = []
+                    for (let reponse of this.reponses ) {
+                        if (this.memereponses === '' && !reponse === this.correction[i])
+                            {this.memereponses = false
+                            verif.push(true)
+                        } else if (!reponse === this.correction[i]){
+                            verif.push(true)
+                        } else {
+                            verif.push(false)
+                        }
+                        i++
+                    }
+                    if (this.memereponses === '') {
+                        this.memereponses =true
+                    }
+                    this.setState({verification:verif})
+                    if (this.memereponses === true) {
+                        this.compteurreponses ++
+                    } else {
+                        if (this.compteurreponses > 0) {
+                            -- this.compteurreponses 
+                        }
+                    }
+                    i=0
+                    console.log(this.compteurreponses)
+                    this.showreponse = !this.showreponse
+                }
+            
             }
 
         } else if (this.state.diapo.type === 'diapo') {
@@ -78,7 +121,7 @@ import {
        if (this.diapo == undefined) {
             return (
                 <div className='curentdiapo'>
-                    <h1>Il semblerait qu'il y ait une erreur dans votre session</h1>
+                    <h1>Bravo, vous avez terminé ce chapitre.</h1>
                     <div className="diapobouttoncontenair"><Link to ="./"><button className="diapoboutton">Retourner au suivi</button></Link></div> 
                 </div>
             )
@@ -95,10 +138,14 @@ import {
         }
         
         if (this.diapo.type === 'qcm') {
-           
-           
+            const warning = {
+                color : 'red'
+            }
+            const success = {
+                color : 'black'
+            }
             const listeQCM= this.diapo.questions[0].options.map((curentoption) =>
-            <li key={curentoption.name}> <input type="checkbox" id={this.diapo.questions[0].options.indexOf(curentoption)} name={curentoption.nom} checked={this.state.checkeboxs[this.diapo.questions[0].options.indexOf(curentoption)].checked} onChange={this.clickchecked}/>{curentoption.nom}</li>
+            <li style={!this.state.verification[this.diapo.questions[0].options.indexOf(curentoption)] ? success : warning} key={curentoption.name}> <input type="checkbox" id={this.diapo.questions[0].options.indexOf(curentoption)} name={curentoption.nom} checked={this.state.checkeboxs[this.diapo.questions[0].options.indexOf(curentoption)].checked} onChange={this.clickchecked}/>{curentoption.nom}</li>
             );
             
             return (
@@ -108,6 +155,7 @@ import {
                     <p><b>Cochez la ou les bonne(s) réponse(s).</b></p>
                     <div>{this.diapo.questions[0].enonce}</div>
                     <ul className="listediapo"> {listeQCM}</ul>
+                        <div>{this.memereponses? 'Bien joué' : ''}</div>
                     <div className="diapobouttoncontenair"><button onClick={this.nextdiapo} className="diapoboutton" type="submit">Suivant</button></div>
                 </div> )
         }  
