@@ -18,8 +18,8 @@ import {
 function Login() {
     return (
       <div className="login">
-        <button >S'inscrire</button>
-        <Link to="/monsuivi"><button id='connexion'>Connexion</button></Link>
+        <button className="mouseoverclick" >S'inscrire</button>
+        <Link to="/monsuivi"><button className="mouseoverclick" id='connexion'>Connexion</button></Link>
       </div>
     )
   }

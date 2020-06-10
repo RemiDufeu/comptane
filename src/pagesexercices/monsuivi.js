@@ -11,7 +11,7 @@ import {
   function Logout() {
     return (
       <div className="login">
-        <Link to ='/'><button >Se déconnecter</button></Link>
+        <Link to ='/'><button className="mouseoverclick">Se déconnecter</button></Link>
       </div>
     )
   }
@@ -32,7 +32,7 @@ export default function monsuivi () {
                     <Route exact path="/monsuivi">
                     
                     <div className='listechapitres'><ul >
-                      <Link to ="/monsuivi/chapitre1"><li>Chapitre1 :<br></br><label> Notion d'emplois/ressources et écritures comptables</label></li></Link>
+                      <Link to ="/monsuivi/chapitre1"><li>Chapitre1 :<br></br><label className="mouseoverclick"> Notion d'emplois/ressources et écritures comptables</label></li></Link>
                       <li><Link to ="/monsuivi/chapitre2">Chapitre2</Link></li>
                     </ul></div>
                         

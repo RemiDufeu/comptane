@@ -1,6 +1,93 @@
 import React from "react";
+import Affichage from './fonctionaffichage'
 
-export default function chapitre2 () {
-    return (<div>chapitre2 coincoin</div>)
-    
+const diapos = [{titre: 'Introduction',
+                type : 'diapo',
+                contenu : <div><div className="problematique">La comptabilité c'est quoi? </div>
+                <p>La comptabilité est la retranscription des flux, des dépenses et des recettes au sein d’une entreprise. Elle a pour but d’établir les documents financiers (bilan et compte de résultat) afin d’évaluer les performances et l’état général d’une entreprise.</p>
+                <div><ul className='listediapo'>Dans les faits voilà des exemples de flux :<li>-Patrick achète un cahier à 2€.</li><li>-L’entreprise Paper vend 250 classeurs à un supermarché à 70€.</li><li>-La banque accorde un prêt à Patrick de 30 000€</li></ul></div>
+                <p>Nous voyons à travers ces exemples que les flux peuvent être de différentes natures. En comptablité, nous nous interresserons plus particulièrement aux flux des sociétes.</p>
+                </div>,
+                 questions : [{options:[{},{}]}]
+                },
+                
+                {titre: 'Notion d\'emplois / ressources',
+                type : 'diapo',
+                contenu : <div><p>Chaque flux a une origine et une destination. En comptabilité, l’origine est appelé ressource ou bien crédit. La destination correspond lui à l’emploi ou le débit (ces termes sont synonymes).</p>
+                <ul className="listediapo">Pour illustrer ces notions, prenons un exemple :<li >L’entreprise Paper vend 250 classeurs à un supermarché à 70€.</li></ul>
+                <p>Ici la ressource utilisée est le classeur produit par l’entreprise, il est à l’origine du flux. Cette vente permet d’obtenir l’argent du client (le supermarché) ce qui est la finalité du flux, l’emploi.</p>
+                <div className="note"><p>Note : Selon le point de vue, les emplois et ressources sont inversés. Pour le supermarché la ressource est 120€ alors que les classeurs sont l’emploi.</p></div>
+                </div>,
+                 questions : [{options:[{},{}]}]
+                },
+
+
+                {titre: 'Exercice',
+                type : 'qcm',
+                questions : [{enonce : 'Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : '2Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : '3Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                    ]
+                },
+
+                {titre: 'Notion d\'emplois / ressources',
+                type : 'diapo',
+                contenu : <div><p>Chaque flux a une origine et une destination. En comptabilité, l’origine est appelé ressource ou bien crédit. La destination correspond lui à l’emploi ou le débit (ces termes sont synonymes).</p>
+                <ul className="listediapo">Pour illustrer ces notions, prenons un exemple :<li >L’entreprise Paper vend 250 classeurs à un supermarché à 70€.</li></ul>
+                <p>Ici la ressource utilisée est le classeur produit par l’entreprise, il est à l’origine du flux. Cette vente permet d’obtenir l’argent du client (le supermarché) ce qui est la finalité du flux, l’emploi.</p>
+                <div className="note"><p>Note : Selon le point de vue, les emplois et ressources sont inversés. Pour le supermarché la ressource est 120€ alors que les classeurs sont l’emploi.</p></div>
+                </div>,
+                 questions : [{options:[{},{}]}]
+                },
+                {titre: 'Exercice',
+                type : 'qcm',
+                questions : [{enonce : 'ppUn producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : 'pp2Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false},{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : 'pp3Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                    ]
+                },
+]
+
+
+export default class Exportchapitre extends React.Component {
+    constructor(props) {
+        super(props);
+     } 
+/*
+    render () {
+        return ( <div className='listechapitres'>
+            <Affichage diapos={diapos} />
+            </div>)
+    }
+*/
+    render () {
+        return (<div className ="contenairectriture">
+            <div className="ecriturebackground">
+            <div className="ecriturecomptable">
+                <ul> <div className="date">01/01/2019</div>
+                    <ul className ='debit'>
+                        <li><div className="compte">607</div><div className="intitule">achat de marchandise</div><div className="montant">300</div></li>
+                        <li><div className="compte">607</div><div className="intitule">achat de marchandise</div><div className="montant">300</div></li></ul>
+                    <ul className ='credit'>
+                        <li><div className="compte">411</div><div className="intitule">fournisseur</div><div className="montant">300</div></li>
+                        <li><div className="compte">411</div><div className="intitule">fournisseur</div><div className="montant">300</div></li>
+                    </ul>
+                </ul>
+            </div>
+            <div className="ecriturecomptable">
+                <ul> <div className="date">01/01/2019</div>
+                    <ul className ='debit'>
+                        <li><div className="compte">607</div><div className="intitule">achat de marchandise</div><div className="montant">300</div></li>
+                        <li><div className="compte">607</div><div className="intitule">achat de marchandise</div><div className="montant"><input></input></div></li></ul>
+                    <ul className ='credit'>
+                        <li><div className="compte">411</div><div className="intitule">fournisseur</div><div className="montant"><input></input></div></li>
+                        <li><div className="compte">411</div><div className="intitule">fournisseur</div><div className="montant">300</div></li>
+                    </ul>
+                </ul>
+            </div>
+            </div>
+        </div>
+        )
+    }
 }
+

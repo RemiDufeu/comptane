@@ -121,3 +121,97 @@ body {
 .note {
   font-style: italic;
 }
+.successmsg {
+  color: rgb(0, 173, 0);
+  height: 35px;
+  text-align: center;
+  padding: 15px;
+}
+.mouseoverclick:hover {
+cursor: pointer;
+}
+.contenairecriture {
+  text-align: center;
+}
+.ecriturebackground {
+  width: 850px ;
+  background-color: ghostwhite;
+  padding: 10px;
+  margin: 10px;
+  position :relative;
+  margin-left : auto;
+  margin-right: auto;
+  text-align: start;
+}
+.ecriturecomptable {
+  margin-left: 50px;
+}
+.ecriturecomptable ul {
+  list-style: none;
+}
+.ecriturecomptable .debit div,.ecriturecomptable .credit div{
+  display: inline-block;
+}
+.ecriturecomptable .compte {
+  width: 40px;
+  margin-left: 50px;
+}
+.ecriturecomptable .debit {
+  padding-bottom: 0;
+}
+.intitule {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-bottom: 2px;
+  width: 350px ;
+  padding-left: 5px;
+}
+.credit .intitule {
+  padding-left: 75px;
+  width: 280px;
+}
+.ecriturecomptable .debit li:first-child div:nth-child(2) {
+  border-top: 1px solid black;
+  padding-top: 18px;
+}
+.ecriturecomptable .debit li:last-child div:nth-child(2) {
+  padding-bottom: 18px;
+}
+.ecriturecomptable .credit li:last-child div:nth-child(2) {
+  border-bottom: 1px solid black ;
+  padding-bottom: 5px;
+}
+.ecriturecomptable .date {
+  margin-left: 250px;
+  position: relative;
+  bottom: -10px;
+  background-color: ghostwhite;
+  width: 85px;
+  padding: 0 5px;
+}
+.ecriturecomptable .montant {
+  padding-left: 5px;
+  width: 80px;
+  padding-bottom: 2px;
+}
+.ecriturecomptable .credit .montant {
+  padding-left: 5px;
+  margin-left: 85px;
+  border-left: 1px solid black;
+}
+.ecriturecomptable .debit .montant {
+  border-right: 1px solid black;
+}
+.ecriturecomptable .debit li:first-child .montant {
+  padding-top: 18px;
+}
+.ecriturecomptable .debit li:last-child .montant {
+  padding-bottom: 18px;
+}
+.ecriturecomptable .credit li:last-child .montant {
+  padding-bottom: 5px;
+}
+.ecriturecomptable input {
+  width: 80%;
+  height: 1em;
+}

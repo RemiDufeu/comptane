@@ -1,11 +1,5 @@
 import React from "react";
 import Affichage from './fonctionaffichage'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 
 const diapos = [{titre: 'Introduction',
                 type : 'diapo',
@@ -48,7 +42,7 @@ const diapos = [{titre: 'Introduction',
                 {titre: 'Exercice',
                 type : 'qcm',
                 questions : [{enonce : 'ppUn producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
-                             {enonce : 'pp2Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
+                             {enonce : 'pp2Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false},{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
                              {enonce : 'pp3Un producteur vend 550€ de carottes, Quel est l\'emploi du producteur?', options:[{nom:'les 550€',checked:true},{nom:'les carottes',checked:false}]},
                     ]
                 },
@@ -67,17 +61,3 @@ export default class Exportchapitre extends React.Component {
     }
     
 }
-
-
-
-/*
-Donc la il me faut une banque de données avec tous les exos et diapos
-
-créer une fucntion dans un autre fichier qui prend des paramètres de la base de donnée et qui effectue un affichage en fonction du type de diapo où on est 
-exemples : QCM, écritures comptable avec selecteur ou non, les données présaisies etc... diaporama, 
-bulle d'aide et compteurs de progressionexemple : si on arrive à 4 bon de suite on passe au niveau suivant
-
-un suivi de progression en haut et un enregistrement de la progresion dans la base de donnée de l'utilisateur
-
-
-*/

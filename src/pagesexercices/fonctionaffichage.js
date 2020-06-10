@@ -141,11 +141,11 @@ import {
             const warning = {
                 color : 'red'
             }
-            const success = {
+            const rien = {
                 color : 'black'
             }
             const listeQCM= this.diapo.questions[0].options.map((curentoption) =>
-            <li style={!this.state.verification[this.diapo.questions[0].options.indexOf(curentoption)] ? success : warning} key={curentoption.name}> <input type="checkbox" id={this.diapo.questions[0].options.indexOf(curentoption)} name={curentoption.nom} checked={this.state.checkeboxs[this.diapo.questions[0].options.indexOf(curentoption)].checked} onChange={this.clickchecked}/>{curentoption.nom}</li>
+            <li style={!this.state.verification[this.diapo.questions[0].options.indexOf(curentoption)] ? rien : warning} key={curentoption.name}> <input type="checkbox" id={this.diapo.questions[0].options.indexOf(curentoption)} name={curentoption.nom} checked={this.state.checkeboxs[this.diapo.questions[0].options.indexOf(curentoption)].checked} onChange={this.clickchecked}/>{curentoption.nom}</li>
             );
             
             return (
@@ -155,7 +155,7 @@ import {
                     <p><b>Cochez la ou les bonne(s) réponse(s).</b></p>
                     <div>{this.diapo.questions[0].enonce}</div>
                     <ul className="listediapo"> {listeQCM}</ul>
-                        <div>{this.memereponses? 'Bien joué' : ''}</div>
+                        <div className='successmsg'>{this.memereponses? 'Bravo, tu as répondu juste à toutes les questions !' : ''}</div>
                     <div className="diapobouttoncontenair"><button onClick={this.nextdiapo} className="diapoboutton" type="submit">Suivant</button></div>
                 </div> )
         }  
